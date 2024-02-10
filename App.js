@@ -14,7 +14,7 @@ export default function App() {
   }, []);
 
   const addActivity = (activity) => {
-    const updatedActivities = [...activities, activsity];
+    const updatedActivities = [...activities, activity];
     setActivities(updatedActivities);
     saveActivities(updatedActivities);
   };

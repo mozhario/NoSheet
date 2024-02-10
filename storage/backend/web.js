@@ -1,3 +1,5 @@
+import { encryptData, decryptData } from '../encryption';
+
 export const WebStorage = {
     async getItem(key) {
         const data = localStorage.getItem(key);

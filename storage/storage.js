@@ -1,5 +1,5 @@
-import { NativeStorage } from '.backend/native';
-import { WebStorage } from '.backend/web';
+import { NativeStorage } from './backend/native';
+import { WebStorage } from './backend/web';
 
 
 export const getStorage = async () => {

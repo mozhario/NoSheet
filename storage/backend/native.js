@@ -1,3 +1,4 @@
+import { encryptData, decryptData } from '../encryption';
 
 export const NativeStorage = {
     async getItem(key) {
