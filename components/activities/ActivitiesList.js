@@ -1,17 +1,21 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
+import { ActivityListItem } from './ActivityListItem';
 
 export default function ActivityList({ activities, onDelete }) {
   return (
     <ScrollView style={styles.container}>
-      {activities.map((activity, index) => (
-        <View key={index} style={styles.activity}>
-          <Text style={styles.activityText}>{activity}</Text>
-          <TouchableOpacity onPress={() => onDelete(index)}>
-            <Text style={styles.deleteText}>Delete</Text>
-          </TouchableOpacity>
-        </View>
-      ))}
+      {activities
+        .slice()
+        .sort((a, b) => new Date(a.startTime) - new Date(b.startTime))
+        .map((activity, index) => (
+          <ActivityListItem
+            key={index}
+            activity={activity}
+            onDelete={onDelete}
+            index={index}
+          />
+        ))}
     </ScrollView>
   );
 }
@@ -20,19 +24,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-  },
-  activity: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  activityText: {
-    fontSize: 18,
-  },
-  deleteText: {
-    color: 'red',
   },
 });
