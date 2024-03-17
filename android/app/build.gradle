@@ -85,11 +85,11 @@ android {
 
     namespace "com.nosheet"
     defaultConfig {
-        applicationId "com.nosheet"
+        applicationId 'com.mozhario.NoSheet'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         buildConfigField("boolean", "REACT_NATIVE_UNSTABLE_USE_RUNTIME_SCHEDULER_ALWAYS", (findProperty("reactNative.unstable_useRuntimeSchedulerAlways") ?: true).toString())
     }
@@ -142,6 +142,12 @@ android {
 }
 
 dependencies {
+        implementation project(':watermelondb-jsi')
+        
+        implementation project(':watermelondb-jsi')
+        
+        implementation project(':watermelondb-jsi')
+        
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 

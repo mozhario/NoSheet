@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, StyleSheet, View, Text } from 'react-native';
 import ActivityList from './components/activities/ActivitiesList';
-import ActivityCreateModal from './components/activities/ActivityCreateModal';
+import ActivityForm from './components/activities/ActivityForm';
 import { saveActivities, loadActivities, getCurrentDayKey } from './services/activities/storage';
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
   const addActivity = (activity) => {
     const updatedActivities = [...activities, activity];
     setActivities(updatedActivities);
-    saveActivities(getCurrentDayKey(), updatedActivities);
+    saveActivities(getActivityKey(activity), activity);
   };
 
   const deleteActivity = (index) => {
@@ -30,7 +30,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.title}>Plan</Text>
       <ActivityList activities={activities} onDelete={deleteActivity} />
-      <ActivityCreateModal
+      <ActivityForm
         onAddActivity={addActivity}
         visible={modalVisible}
         onClose={() => setModalVisible(false)}

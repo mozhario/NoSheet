@@ -10,6 +10,17 @@
       "eas": {
         "projectId": "c526186c-1927-4228-ae73-b709ce7493d2"
       }
+    },
+    "plugins": [
+      [
+        "@morrowdigital/watermelondb-expo-plugin"
+      ]
+    ],
+    "android": {
+      "package": "com.mozhario.NoSheet"
+    },
+    "ios": {
+      "bundleIdentifier": "com.mozhario.NoSheet"
     }
   }
 }

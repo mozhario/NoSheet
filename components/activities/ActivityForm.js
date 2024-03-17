@@ -3,9 +3,8 @@ import { Modal, View, TextInput, Button, StyleSheet, Platform, KeyboardAvoidingV
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Slider from '@react-native-community/slider';
 
-const ActivityCreateModal = ({ onAddActivity }) => {
+const ActivityForm = ({ onAddActivity }) => {
   const [visible, setVisible] = useState(false);
-  // Updated state with startTime, endTime, plannedActivity, and actualActivity
   const [newActivity, setNewActivity] = useState({
     startTime: new Date(),
     endTime: new Date(),
@@ -32,14 +31,14 @@ const ActivityCreateModal = ({ onAddActivity }) => {
     setVisible(false);
     // Reset form
     setNewActivity({
-      startTime: new Date(),
-      endTime: new Date(),
-      plannedActivity: '',
-      actualActivity: '',
-      depression: '',
-      achievement: '',
-      joy: '',
-      thoughts: '',
+      startTime: activity?.startTime || new Date(),
+      endTime: activity?.endTime || new Date(),
+      plannedActivity: activity?.plannedActivity || '',
+      actualActivity: activity?.actualActivity || '',
+      depression: activity?.depression || 0,
+      achievement: activity?.achievement || 0,
+      joy: activity?.joy || 0,
+      thoughts: activity?.thoughts || '',
     });
   };
 
@@ -209,4 +208,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ActivityCreateModal;
+export default ActivityForm;
